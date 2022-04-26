@@ -21,7 +21,6 @@ class UploadImage(generics.GenericAPIView):
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
-            print(serializer)
             serializer.save()
             print(serializer.data)
             return Response(serializer.data, status=status.HTTP_200_OK)
